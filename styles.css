@@ -38,6 +38,15 @@ body {
   height: 60px;
 }
 
+button {
+  width: 70px;
+  height: 70px;
+  border: transparent;
+  background-color: lightcoral;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
 .button-row>button:last-child {
   margin-left: 20px;
 }
@@ -50,21 +59,17 @@ body {
 
 .special {
   height: 80%;
+  background-color:lightblue;
 }
 
-button {
-  width: 70px;
-  height: 70px;
-  border: transparent;
-  background-color: rgb(172, 170, 170);
-  border-radius: 10px;
-  font-size: 20px;
+.operator {
+  background-color: lightskyblue;
 }
 
 button:hover {
-  background-color: dimgray;
+  filter: brightness(85%);
 }
 
 button:active {
-  background-color: rgb(63, 63, 63);
+  filter: brightness(50%);
 }
