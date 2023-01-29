@@ -50,3 +50,7 @@ button {
 button:hover {
   background-color: dimgray;
 }
+
+button:active {
+  background-color: rgb(63, 63, 63);
+}

@@ -1,6 +1,7 @@
 const display = document.getElementById("display");
 const numberButtons = document.querySelectorAll(".number");
 const operatorButtons = document.querySelectorAll(".operator");
+const clearButton = document.getElementById("clear");
 let currentValue = "",
   firstNumber = null,
   secondNumber = null,
@@ -49,13 +50,14 @@ function callOperation(e) {
   }
 }
 
-numberButtons.forEach((button) =>
-  button.addEventListener("click", clickNumber)
-);
-
-operatorButtons.forEach((button) =>
-  button.addEventListener("click", callOperation)
-);
+function clear() {
+  firstNumber = null;
+  secondNumber = null;
+  operation = null;
+  lastResult = null;
+  currentValue = "";
+  updateDisplay(currentValue);
+}
 
 function add(a, b) {
   return a + b;
@@ -71,6 +73,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
   if (b == 0) {
+    alert("very funny...");
     return 0;
   }
   return a / b;
@@ -101,3 +104,13 @@ function operate(a, b, op) {
   operation = null;
   lastResult = result;
 }
+
+numberButtons.forEach((button) =>
+  button.addEventListener("click", clickNumber)
+);
+
+operatorButtons.forEach((button) =>
+  button.addEventListener("click", callOperation)
+);
+
+clearButton.addEventListener("click", clear);
