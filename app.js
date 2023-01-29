@@ -2,6 +2,7 @@ const display = document.getElementById("display");
 const numberButtons = document.querySelectorAll(".number");
 const operatorButtons = document.querySelectorAll(".operator");
 const clearButton = document.getElementById("clear");
+const backspaceButton = document.getElementById("backspace");
 let currentValue = "",
   firstNumber = null,
   secondNumber = null,
@@ -62,6 +63,11 @@ function clear() {
   updateDisplay(currentValue);
 }
 
+function backspace() {
+  currentValue = currentValue.slice(0, -1);
+  updateDisplay(currentValue);
+}
+
 function add(a, b) {
   return a + b;
 }
@@ -117,3 +123,5 @@ operatorButtons.forEach((button) =>
 );
 
 clearButton.addEventListener("click", clear);
+
+backspaceButton.addEventListener("click", backspace);
