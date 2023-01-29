@@ -10,8 +10,8 @@ let currentValue = "",
   lastResult = null;
 
 function updateDisplay(displayValue) {
-  if (displayValue.length > 16) {
-    display.textContent = `${displayValue.substring(0, 15)}...`;
+  if (displayValue.length > 13) {
+    display.textContent = `${displayValue.substring(0, 13)}...`;
   } else {
     display.textContent = displayValue;
   }
@@ -114,14 +114,66 @@ function operate(a, b, op) {
   lastResult = result;
 }
 
+function getKeyboardInput(key) {
+  let button = null;
+
+  if ((key >= 0 && key <= 9) || key == ".") {
+    button = document.getElementById(key);
+  } else {
+    switch (key) {
+      case "+":
+        button = document.getElementById("add");
+        break;
+      case "-":
+        button = document.getElementById("subtract");
+        break;
+      case "*":
+      case "x":
+        button = document.getElementById("multiply");
+        break;
+      case "/":
+        button = document.getElementById("divide");
+        break;
+      case "=":
+      case "Enter":
+        button = document.getElementById("equals");
+        break;
+      case "c":
+        button = clearButton;
+        break;
+      case "Backspace":
+        button = backspaceButton;
+        break;
+    }
+  }
+  return button;
+}
+
+function keyboardInteractionStart(e) {
+  e.preventDefault();
+  button = getKeyboardInput(e.key);
+
+  if (button !== null) {
+    button.click();
+    button.classList.add("active");
+  }
+}
+
+function keyboardInteractionEnd(e) {
+  button = getKeyboardInput(e.key);
+
+  if (button !== null) {
+    button.classList.remove("active");
+  }
+}
+
 numberButtons.forEach((button) =>
   button.addEventListener("click", clickNumber)
 );
-
 operatorButtons.forEach((button) =>
   button.addEventListener("click", callOperation)
 );
-
 clearButton.addEventListener("click", clear);
-
 backspaceButton.addEventListener("click", backspace);
+window.addEventListener("keydown", keyboardInteractionStart);
+window.addEventListener("keyup", keyboardInteractionEnd);
