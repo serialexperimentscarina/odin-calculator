@@ -4,8 +4,8 @@ body {
 }
 
 #calculator {
-  height: 500px;
-  width: 450px;
+  height: 560px;
+  width: 400px;
   margin: auto;
   margin-top: 50px;
   border: 1px rgb(48, 48, 48) solid;
@@ -16,7 +16,7 @@ body {
 #display {
   box-sizing: border-box;
   height: 90px;
-  width: 400px;
+  width: 350px;
   padding: 25px;
   margin: 25px auto;
   border-radius: 20px;
@@ -34,8 +34,22 @@ body {
   align-items: center;
 }
 
+.top-row {
+  height: 60px;
+}
+
 .button-row>button:last-child {
   margin-left: 20px;
+}
+
+#backspace
+{
+  margin-left: 0px;
+  margin-right: 210px;
+}
+
+.special {
+  height: 80%;
 }
 
 button {

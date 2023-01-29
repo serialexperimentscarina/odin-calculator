@@ -18,6 +18,9 @@ function updateDisplay(displayValue) {
 
 function clickNumber(e) {
   let number = e.target.id;
+  if (number == "." && currentValue % 1 != 0) {
+    return;
+  }
   currentValue += number;
   updateDisplay(currentValue);
 }
